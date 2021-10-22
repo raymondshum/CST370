@@ -1,14 +1,18 @@
-         ___        ______     ____ _                 _  ___  
-        / \ \      / / ___|   / ___| | ___  _   _  __| |/ _ \ 
-       / _ \ \ /\ / /\___ \  | |   | |/ _ \| | | |/ _` | (_) |
-      / ___ \ V  V /  ___) | | |___| | (_) | |_| | (_| |\__, |
-     /_/   \_\_/\_/  |____/   \____|_|\___/ \__,_|\__,_|  /_/ 
- ----------------------------------------------------------------- 
+# CST370 - Design and Analysis of Algorithms
 
+---
 
-Hi there! Welcome to AWS Cloud9!
+> In this course, students will learn important data structures in computer science and acquire fundamental algorithm design techniques to get the efficient solutions to several computing problems from various disciplines. Topics include the analysis of algorithm efficiency,
+hash, heap, graph, tree, sorting and searching, brute force, divide-and-conquer, decrease-andconquer, transform-and-conquer, dynamic programming, and greedy programming. 
 
-To get started, create some files, play with the terminal,
-or visit https://docs.aws.amazon.com/console/cloud9/ for our documentation.
+---
 
-Happy coding!
+## _Description_
+
+This repository contains my coursework for CST370.
+
+---
+
+## _Projects__
+
+---
