@@ -31,6 +31,7 @@ int main() {
     }
 
     sort(begin(inputList), end(inputList));
+    
     cout << "MIN:" << min << endl;
     cout << "MAX:" << max << endl;
     cout << "MEDIAN:" << inputList[2] << endl;
