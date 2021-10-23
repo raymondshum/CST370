@@ -13,6 +13,6 @@ This repository contains my coursework for CST370.
 
 ---
 
-## _Projects__
+## _Projects_
 
 ---
