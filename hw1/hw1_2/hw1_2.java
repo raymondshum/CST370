@@ -1,5 +1,5 @@
 /**
- * Title: hw1_2.cpp
+ * Title: hw1_2.java
  * Abstract: This program reads input numbers from a user and displays the numbers
  *           that appear with the highest frequency, in descending order.
  * Author: Raymond Shum

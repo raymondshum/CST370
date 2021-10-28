@@ -1,3 +1,12 @@
+/**
+ * Title: hw1_3.java
+ * Abstract: This program reads directed graph data from a user and converts
+ *           it to adjacency list format.
+ * Author: Raymond Shum
+ * ID: 9030
+ * Date: 11/2/2021
+ */
+
 import java.lang.reflect.Array;
 import java.util.*;
 
