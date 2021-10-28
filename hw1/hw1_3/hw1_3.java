@@ -12,29 +12,34 @@ import java.util.*;
 
 public class hw1_3 {
     public static void main(String[] args) {
+        
         Scanner input = new Scanner(System.in);
-        int numEdges = input.nextInt();
         int numVertex = input.nextInt();
+        int numEdges = input.nextInt(); 
 
-        ArrayList<Integer>[] adjList = new ArrayList[numEdges];
+        // Adjacency list is an ArrayList of ArrayLists
+        ArrayList<Integer>[] adjList = new ArrayList[numVertex];
 
-        for(int i = 0; i < numEdges; i++){
+        // Index represents label of edge
+        for(int i = 0; i < numVertex; i++){
             adjList[i] = new ArrayList<>();
         }
 
-        for(int i = 0; i < numVertex; i++) {
+        // Add edges to each vertex as encountered
+        for(int i = 0; i < numEdges; i++) {
             int index = input.nextInt();
             int edge = input.nextInt();
 
             adjList[index].add(edge);
         }
         
-        for(int i = 0; i < numEdges; i++){
+        // Sort ArrayList at each index in asc order before printing
+        for(int i = 0; i < numVertex; i++){
             System.out.printf("%d", i);
             Collections.sort(adjList[i]);
 
-            for(Integer number : adjList[i]){
-                System.out.printf("->%d", number);
+            for(Integer edge : adjList[i]){
+                System.out.printf("->%d", edge);
             }
             System.out.printf("\n");
         }
