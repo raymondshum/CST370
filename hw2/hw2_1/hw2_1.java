@@ -25,7 +25,8 @@ public class hw2_1 {
         // Calculate difference between times - can convert to ternary
         if (seconds2 >= seconds1) { // second time occurs before the next day
             difference = seconds2 - seconds1;
-        } else { //second time occurs on the next day (after midnight)
+        } else { //second time occurs on the next day (after midnight) 
+            // {24,00,00} - 1 sec offset is included because 00:00:00 is not counted otherwise
             difference = timeToSeconds(new int[] {24,00,00}) - seconds1 + seconds2;
         }
 
