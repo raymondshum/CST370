@@ -23,15 +23,17 @@ public class hw1_2 {
         // Count frequency of all incoming numbers
         for (int i = 0; i < numElements; i++) {
             int number = input.nextInt();
+            int newFreq;
 
             // Set number as 1 in Treemap if does not exist
             if (!frequencyList.containsKey(number)) {
-                frequencyList.put(number, 1);
+                newFreq = 1;
+                frequencyList.put(number, newFreq);
             } else { // Add one to frequency count if number exists
-                int newFreq = frequencyList.get(number) + 1;
-                maxFreq = Math.max(newFreq, maxFreq); //tracks highest frequency
+                newFreq = frequencyList.get(number) + 1;
                 frequencyList.put(number, newFreq);
             }
+            maxFreq = Math.max(newFreq, maxFreq); //tracks highest frequency
         }
 
         System.out.printf("Frequency:%d\n", maxFreq);
