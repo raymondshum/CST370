@@ -20,7 +20,7 @@ public class hw2_2 {
         input.nextLine(); // get rid of newline character
 
         // initialize elements[] to dummy value if no elements
-        if (numElements == 0) {
+        if (numElements <= 0) {
             elements = new String[1];
             elements[0] = "EMPTY";
         } else { // split user input into array of strings
@@ -33,7 +33,7 @@ public class hw2_2 {
 
             // Sets binaryString to "0" if there are no elements
             // Else, left pads binaryString with "0" until it reaches numElements
-            String binaryString = (numElements == 0) ? "0"
+            String binaryString = (numElements <= 0) ? "0"
                     : String.format("%" + numElements + "s", Integer.toBinaryString(element)).replace(' ', '0');
             
             StringBuffer subset = new StringBuffer();
