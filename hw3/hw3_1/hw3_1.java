@@ -1,8 +1,7 @@
 /**
  * Title: hw3_1.java 
  * Abstract: This program takes input values, sorts in ascending order and displays
- *           them. Consecutive integers are displayed as ranges in the form of 
- *           int[0]-int[n-1].
+ * them. Consecutive integers are displayed as ranges in the form of int[0]-int[n-1].
  * Author: Raymond Shum 
  * ID: 9030 
  * Date: 11/16/2021
