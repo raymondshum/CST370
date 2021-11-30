@@ -2,6 +2,7 @@
  * Title: hw4_3.java 
  * Abstract: This program conducts topological sorting based on
  * Kahn's algorithm (covered in the lecture).
+ * Author: Raymond Shum 
  * ID: 9030 
  * Date: 11/30/2021
  */

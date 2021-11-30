@@ -2,6 +2,7 @@
  * Title: hw4_2.java 
  * Abstract: This program finds the maximum value in an array using a divide-
  * and-conquer technique.
+ * Author: Raymond Shum 
  * ID: 9030 
  * Date: 11/30/2021
  */
