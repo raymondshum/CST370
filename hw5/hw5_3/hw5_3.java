@@ -1,3 +1,14 @@
+/**
+ * Title: hw5_3.java 
+ * Abstract: This assignment takes user input and simulates the operations
+ * of linear probing as covered in the lecture. We build as hash table based
+ * on user input, rehash the table once load factor exceeds 0.5 and perform
+ * insert/search operations using linear probing. 
+ * Author: Raymond Shum 
+ * ID: 9030 
+ * Date: 12/02/2021
+ */
+
 import java.util.*;
 import java.math.*;
 
@@ -10,6 +21,9 @@ public class hw5_3 {
     int numKeys;
     int tSize;
 
+    /**
+     * Default constructor
+     */
     hw5_3() {
         Scanner myScanner = new Scanner(System.in);
         tSize = myScanner.nextInt();
@@ -21,11 +35,21 @@ public class hw5_3 {
         myScanner.close();
     }
 
+    /**
+     * Helper for constructor. Initialize hash table 
+     * with user input.
+     * @param myScanner Scanner Initialized in default constructor.
+     */
     private void initHashTable(Scanner myScanner) {
         hashTable = new int[tSize];
         Arrays.fill(hashTable, EMPTY);
     }
 
+    /**
+     * Helper for constructor. Initialize and store
+     * user commands. 
+     * @param myScanner Initialized in default constructor.
+     */
     private void initCommands(Scanner myScanner) {
         int numCommands = myScanner.nextInt();
         myScanner.nextLine();
@@ -36,6 +60,9 @@ public class hw5_3 {
         }
     }
 
+    /**
+     * Parse stored commands and call corresponding methods.
+     */
     public void runCommand() {
         for(String command : commands){
             if(command.indexOf(" ") == -1){
@@ -47,6 +74,12 @@ public class hw5_3 {
         }
     }
 
+    /**
+     * Helper for runCommand. Identifies requested method
+     * and passes user defined parameter.
+     * @param funcName String Name of method to be called.
+     * @param param Int Value of parameter passed to method.
+     */
     private void execute(String funcName, int param) {
         switch(funcName) {
             case "displayStatus":
@@ -63,6 +96,11 @@ public class hw5_3 {
         }
     }
 
+    /**
+     * Inserts new value into hash table. Calculates load factor
+     * after every insert and rehashes if exceeded.
+     * @param value
+     */
     public void insert(int value) {
         insertTo(value, hashTable);
 
@@ -72,6 +110,13 @@ public class hw5_3 {
         }
     }
 
+    /**
+     * Helper for insert and rehash. Hashes value into a 
+     * key and attempts to insert to passed table. Performs
+     * linear probing if collision occurs.
+     * @param value Int Value to be inserted.
+     * @param to Int[] Hash Table to insert to.
+     */
     private void insertTo(int value, int[] to) {
         int key = hash(value);
 
@@ -85,10 +130,27 @@ public class hw5_3 {
         numKeys++;
     }
 
+    /**
+     * Helper for insertTo and search. Method for hashing
+     * keys covered in lecture.
+     * @param value Int Value to be hashed into a key.
+     * @return Int Key
+     */
     private int hash(int value) {
         return value % tSize;
     }
 
+    /**
+     * Helper for insertTo and search. Attempts to find
+     * value at index pointed to by hashed key. Performs
+     * linear probing. Starts at position immediately 
+     * following key parameter and loops around array
+     * (as if it is circular).
+     * @param key Int Previously hashed key.
+     * @param value Int Value searched for.
+     * @param table Int[] Hash table to search in.
+     * @return Int -1 if not found, index if found.
+     */
     private int linearProbe(int key, int value, int[] table) {
         int position = (key + 1) % tSize;
         while (position != key) {
@@ -100,16 +162,26 @@ public class hw5_3 {
         return -1;
     }
 
+    /**
+     * Helper for insert. This rehashes the current table. It 
+     * calculates a new table size, and initializes a new
+     * hash table. It rehashes the entries of the old table
+     * and inserts them to the new table.
+     */
     private void rehash() {
+        // Calculate next prime after doubling table size
         String curSize = Integer.toString(2 * tSize);
         BigInteger newSize = new BigInteger(curSize).nextProbablePrime();
 
+        // Set new table values
         tSize = newSize.intValue();
         numKeys = 0;
 
+        // Initialize new hash table
         int newTable[] = new int[tSize];
-        Arrays.fill(newTable, -1);
+        Arrays.fill(newTable, EMPTY);
 
+        // Rehash and reinsert all values in old table
         for (int entry : hashTable) {
             if (entry != EMPTY) {
                 insertTo(entry, newTable);
@@ -118,6 +190,11 @@ public class hw5_3 {
         hashTable = newTable;
     }
 
+    /**
+     * Searches for an integer value in the hash table using
+     * hashing and linear probing. Then prints the result.
+     * @param value Int Value to be found.
+     */
     public void search(int value) {
         int key = hash(value);
         if (hashTable[key] == EMPTY) {
@@ -131,20 +208,21 @@ public class hw5_3 {
         }
     }
 
+    /**
+     * Displays absolute max entries allowed in hash table.
+     */
     public void tableSize() {
         System.out.println(tSize);
     }
 
+    /**
+     * Displays whether a hash table entry is "Empty" or
+     * the value if it is occupied.
+     * @param index
+     */
     public void displayStatus(int index) {
         int entry = hashTable[index];
         System.out.println(entry == EMPTY ? "Empty" : entry);
-    }
-
-    public void printHashTable() {
-        for (int num : hashTable) {
-            System.out.printf("%d ", num);
-        }
-        System.out.println();
     }
 
     public static void main(String args[]) {
