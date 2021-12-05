@@ -1,3 +1,4 @@
+
 /**
  * Title: hw5_3.java 
  * Abstract: This assignment takes user input and simulates the operations
@@ -36,8 +37,9 @@ public class hw5_3 {
     }
 
     /**
-     * Helper for constructor. Initialize hash table 
+     * Helper for constructor. Initialize hash table
      * with user input.
+     * 
      * @param myScanner Scanner Initialized in default constructor.
      */
     private void initHashTable(Scanner myScanner) {
@@ -47,7 +49,8 @@ public class hw5_3 {
 
     /**
      * Helper for constructor. Initialize and store
-     * user commands. 
+     * user commands.
+     * 
      * @param myScanner Initialized in default constructor.
      */
     private void initCommands(Scanner myScanner) {
@@ -64,8 +67,8 @@ public class hw5_3 {
      * Parse stored commands and call corresponding methods.
      */
     public void runCommand() {
-        for(String command : commands){
-            if(command.indexOf(" ") == -1){
+        for (String command : commands) {
+            if (command.indexOf(" ") == -1) {
                 tableSize();
             } else {
                 String parse[] = command.split(" ", 2);
@@ -77,11 +80,12 @@ public class hw5_3 {
     /**
      * Helper for runCommand. Identifies requested method
      * and passes user defined parameter.
+     * 
      * @param funcName String Name of method to be called.
-     * @param param Int Value of parameter passed to method.
+     * @param param    Int Value of parameter passed to method.
      */
     private void execute(String funcName, int param) {
-        switch(funcName) {
+        switch (funcName) {
             case "displayStatus":
                 displayStatus(param);
                 break;
@@ -99,6 +103,7 @@ public class hw5_3 {
     /**
      * Inserts new value into hash table. Calculates load factor
      * after every insert and rehashes if exceeded.
+     * 
      * @param value
      */
     public void insert(int value) {
@@ -111,11 +116,12 @@ public class hw5_3 {
     }
 
     /**
-     * Helper for insert and rehash. Hashes value into a 
+     * Helper for insert and rehash. Hashes value into a
      * key and attempts to insert to passed table. Performs
      * linear probing if collision occurs.
+     * 
      * @param value Int Value to be inserted.
-     * @param to Int[] Hash Table to insert to.
+     * @param to    Int[] Hash Table to insert to.
      */
     private void insertTo(int value, int[] to) {
         int key = hash(value);
@@ -133,6 +139,7 @@ public class hw5_3 {
     /**
      * Helper for insertTo and search. Method for hashing
      * keys covered in lecture.
+     * 
      * @param value Int Value to be hashed into a key.
      * @return Int Key
      */
@@ -143,10 +150,11 @@ public class hw5_3 {
     /**
      * Helper for insertTo and search. Attempts to find
      * value at index pointed to by hashed key. Performs
-     * linear probing. Starts at position immediately 
+     * linear probing. Starts at position immediately
      * following key parameter and loops around array
      * (as if it is circular).
-     * @param key Int Previously hashed key.
+     * 
+     * @param key   Int Previously hashed key.
      * @param value Int Value searched for.
      * @param table Int[] Hash table to search in.
      * @return Int -1 if not found, index if found.
@@ -163,7 +171,7 @@ public class hw5_3 {
     }
 
     /**
-     * Helper for insert. This rehashes the current table. It 
+     * Helper for insert. This rehashes the current table. It
      * calculates a new table size, and initializes a new
      * hash table. It rehashes the entries of the old table
      * and inserts them to the new table.
@@ -193,6 +201,7 @@ public class hw5_3 {
     /**
      * Searches for an integer value in the hash table using
      * hashing and linear probing. Then prints the result.
+     * 
      * @param value Int Value to be found.
      */
     public void search(int value) {
@@ -218,6 +227,7 @@ public class hw5_3 {
     /**
      * Displays whether a hash table entry is "Empty" or
      * the value if it is occupied.
+     * 
      * @param index
      */
     public void displayStatus(int index) {
