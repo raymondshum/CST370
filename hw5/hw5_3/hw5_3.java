@@ -212,7 +212,12 @@ public class hw5_3 {
             System.out.printf("%d Found\n", value);
         } else {
             int position = linearProbe(key, value, hashTable);
-            String result = position == -1 ? "Not found" : "Found";
+            String result = "";
+            if(position == -1 || hashTable[position] != value) {
+                result = "Not found";
+            } else {
+                result = "Found";
+            }
             System.out.printf("%d %s\n", value, result);
         }
     }
